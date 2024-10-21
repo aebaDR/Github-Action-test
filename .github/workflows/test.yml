@@ -2,13 +2,17 @@ name: 'Cool workflow'
 on:
   workflow_dispatch:
 jobs:
-
-  - name: Notify Slack
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: 8398a7/action-slack@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: echo "Tests passed"
+      - name: Notify Slack
+        uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-        if: always() # Pick up events even if the job fails or is canceled.
