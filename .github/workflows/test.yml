@@ -11,4 +11,4 @@ jobs:
         run: echo "Tests passed"
       - name: Notify Slack
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Version v6.60.0 til :ios: og :android: er tilgængelig nu internt i Development & Production appen (Intern test prod :android:, Intern test dev :android: og i TestFlight :ios:)"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Version v6.60.0 til :ios: og :android: er tilgængelig nu internt i Development & Production appen (<https://play.google.com/apps/internaltest/4699592015152166842/|Intern test prod> :android:, <https://play.google.com/apps/internaltest/4700745607886572208/|Intern test dev> :android: og i TestFlight :ios:)"}' ${{ secrets.SLACK_WEBHOOK_URL }}
