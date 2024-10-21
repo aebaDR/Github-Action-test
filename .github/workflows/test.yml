@@ -10,5 +10,5 @@ jobs:
       - name: Run tests
         run: echo "Tests passed"
       - name: Notify Slack
-        run: 
+        run: |
           curl -X POST -H 'Content-type: application/json' --data '{"text":"Version v6.60.0 til ios og android er tilgængelig nu internt i Development & Production appen (Intern test (android), Intern test dev (android) og i TestFlight (ios))"}' ${{ secrets.SLACK_WEBHOOK_URL }}
