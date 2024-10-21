@@ -9,10 +9,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Run tests
         run: echo "Tests passed"
-      - name: Get package version
+      - name: Get the package version
         id: package-version
-        run: martinbeentjes/npm-get-version-action@v1.3.1
-      - name: Notify Slack
+        run: echo "::set-output name=current-version::$(node -p "require('./package.json').version")"
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           tag: ${{ steps.package-version.outputs.current-version }}
